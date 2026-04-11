@@ -1,0 +1,29 @@
+[
+  {
+    "username": "janik1978",
+    "password": "Pentagon442338$",
+    "balance": "25802.74 ֏",
+    "balance_value": 25802.74,
+    "status": "✅",
+    "error": "",
+    "timestamp": "2026-04-11T22:04:30.896217"
+  },
+  {
+    "username": "sasun..1",
+    "password": "Aa633635",
+    "balance": "8.90 ֏",
+    "balance_value": 8.9,
+    "status": "✅",
+    "error": "",
+    "timestamp": "2026-04-11T22:04:30.896266"
+  },
+  {
+    "username": "arm55",
+    "password": "Vahramaberd777@",
+    "balance": "",
+    "balance_value": 0.0,
+    "status": "❌",
+    "error": "'NoneType' object has no attribute 'new_context'",
+    "timestamp": "2026-04-11T22:04:30.896290"
+  }
+]

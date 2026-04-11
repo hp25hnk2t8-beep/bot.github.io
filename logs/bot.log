@@ -1,0 +1,27 @@
+2026-04-11 22:02:24 | INFO | AdjarabetBot | ============================================================
+2026-04-11 22:02:24 | INFO | AdjarabetBot | 🎮 ADJARABET BOT PRO v10.0 - PRODUCTION MODE
+2026-04-11 22:02:24 | INFO | AdjarabetBot | ============================================================
+2026-04-11 22:02:24 | INFO | AdjarabetBot | 📁 Working directory: /home/armen/Desktop/project
+2026-04-11 22:02:24 | INFO | AdjarabetBot | 🌐 Web interface: http://0.0.0.0:8000
+2026-04-11 22:02:24 | INFO | AdjarabetBot | 📊 API docs: http://0.0.0.0:8000/api/docs
+2026-04-11 22:04:30 | INFO | AdjarabetBot | Starting Playwright...
+2026-04-11 22:04:30 | INFO | AdjarabetBot | Starting Playwright...
+2026-04-11 22:04:30 | INFO | AdjarabetBot | Launching browser (headless=True)...
+2026-04-11 22:04:30 | INFO | AdjarabetBot | Launching browser (headless=True)...
+2026-04-11 22:04:30 | INFO | AdjarabetBot | Bot started successfully
+2026-04-11 22:04:30 | INFO | AdjarabetBot | Bot started successfully
+2026-04-11 22:04:30 | INFO | AdjarabetBot | 📊 Processing 25 accounts
+2026-04-11 22:04:30 | INFO | AdjarabetBot | 📊 Processing 25 accounts
+2026-04-11 22:04:38 | INFO | AdjarabetBot | ✅ janik1978 | 25802.74 ֏
+2026-04-11 22:04:38 | INFO | AdjarabetBot | ✅ janik1978 | 25802.74 ֏
+2026-04-11 22:04:41 | INFO | AdjarabetBot | ✅ sasun..1 | 8.90 ֏
+2026-04-11 22:04:41 | INFO | AdjarabetBot | ✅ sasun..1 | 8.90 ֏
+2026-04-11 22:04:44 | INFO | AdjarabetBot | Bot task cancelled
+2026-04-11 22:04:44 | INFO | AdjarabetBot | Bot task cancelled
+2026-04-11 22:04:44 | INFO | AdjarabetBot | Bot task cancelled
+2026-04-11 22:04:44 | INFO | AdjarabetBot | Stopping bot...
+2026-04-11 22:04:44 | INFO | AdjarabetBot | Stopping bot...
+2026-04-11 22:04:44 | INFO | AdjarabetBot | Stopping bot...
+2026-04-11 22:04:46 | ERROR | AdjarabetBot | ❌ arm55 FAILED: 'NoneType' object has no attribute 'new_context'
+2026-04-11 22:04:46 | ERROR | AdjarabetBot | ❌ arm55 FAILED: 'NoneType' object has no attribute 'new_context'
+2026-04-11 22:04:46 | ERROR | AdjarabetBot | ❌ arm55 FAILED: 'NoneType' object has no attribute 'new_context'
