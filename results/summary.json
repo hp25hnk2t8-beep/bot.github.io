@@ -1,0 +1,11 @@
+{
+  "total": 25,
+  "successful": 22,
+  "failed": 0,
+  "timeouts": 3,
+  "blocked": 0,
+  "proxy_errors": 0,
+  "success_rate": 88.0,
+  "duration_seconds": null,
+  "accounts_per_minute": 0
+}
