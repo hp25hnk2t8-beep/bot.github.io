@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: adjarabet-bot
+    runtime: python
+    buildCommand: pip install -r requirements.txt && python -m playwright install chromium
+    startCommand: python main.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: HEADLESS
+        value: true
+      - key: MAX_CONCURRENCY
+        value: 1
+      - key: AUTO_START
+        value: true
+    disk:
+      name: bot-data
+      mountPath: /opt/render/.cache
+      sizeGB: 1
