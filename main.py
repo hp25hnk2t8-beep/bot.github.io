@@ -18,17 +18,20 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 
 # ================= PLAYWRIGHT FIX FOR RENDER =================
-# Set Playwright browser cache to writable directory
-os.environ["PLAYWRIGHT_BROWSERS_PATH"] = "/opt/render/.cache/ms-playwright"
-os.makedirs("/opt/render/.cache/ms-playwright", exist_ok=True)
+import os
 
-# Try to import playwright with error handling
+# No forcing Playwright paths (IMPORTANT)
+if os.getenv("RENDER"):
+    print("Running on Render - using system Playwright install")
+
+# Try to import playwright
 try:
     from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeout, BrowserContext
     PLAYWRIGHT_AVAILABLE = True
 except ImportError as e:
     PLAYWRIGHT_AVAILABLE = False
     print(f"⚠️ Playwright not available: {e}")
+
 
 # ================= PRODUCTION CONFIG =================
 PRODUCTION_CONFIG = {
@@ -964,4 +967,4 @@ if __name__ == "__main__":
         port=PRODUCTION_CONFIG["port"],
         log_level=PRODUCTION_CONFIG["log_level"].lower(),
         access_log=False
-    )
+    ) 

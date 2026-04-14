@@ -1,0 +1,34 @@
+2026-04-14 16:27:19 | INFO | AdjarabetBot | ============================================================
+2026-04-14 16:27:19 | INFO | AdjarabetBot | 🎮 ADJARABET BOT PRO v10.0 - PRODUCTION MODE
+2026-04-14 16:27:19 | INFO | AdjarabetBot | ============================================================
+2026-04-14 16:27:19 | INFO | AdjarabetBot | 📁 Working directory: /home/armen/Desktop/project
+2026-04-14 16:27:19 | INFO | AdjarabetBot | 🌐 Web interface: http://0.0.0.0:8000
+2026-04-14 16:27:19 | INFO | AdjarabetBot | 🤖 Playwright available: True
+2026-04-14 16:27:19 | INFO | AdjarabetBot | 🤖 Auto-start on Render: True
+2026-04-14 16:27:19 | INFO | AdjarabetBot | ============================================================
+2026-04-14 16:27:19 | WARNING | AdjarabetBot | No accounts found in accounts.txt. Bot will not auto-start.
+2026-04-14 16:27:19 | INFO | AdjarabetBot | You can add accounts via UI or /start endpoint later.
+2026-04-14 16:27:25 | INFO | AdjarabetBot | Starting Playwright...
+2026-04-14 16:27:25 | INFO | AdjarabetBot | Starting Playwright...
+2026-04-14 16:27:25 | INFO | AdjarabetBot | Launching browser (headless=True)...
+2026-04-14 16:27:25 | INFO | AdjarabetBot | Launching browser (headless=True)...
+2026-04-14 16:27:25 | INFO | AdjarabetBot | Bot started successfully
+2026-04-14 16:27:25 | INFO | AdjarabetBot | Bot started successfully
+2026-04-14 16:27:25 | INFO | AdjarabetBot | 📊 Processing 25 accounts
+2026-04-14 16:27:25 | INFO | AdjarabetBot | 📊 Processing 25 accounts
+2026-04-14 16:27:30 | INFO | AdjarabetBot | ✅ janik1978 | 25802.74 ֏
+2026-04-14 16:27:30 | INFO | AdjarabetBot | ✅ janik1978 | 25802.74 ֏
+2026-04-14 16:27:32 | INFO | AdjarabetBot | ✅ gexine | 9.90 ֏
+2026-04-14 16:27:32 | INFO | AdjarabetBot | ✅ gexine | 9.90 ֏
+2026-04-14 16:27:37 | INFO | AdjarabetBot | ✅ sasun..1 | 8.90 ֏
+2026-04-14 16:27:37 | INFO | AdjarabetBot | ✅ sasun..1 | 8.90 ֏
+2026-04-14 16:27:38 | INFO | AdjarabetBot | ✅ gevsyuz | 11.00 ֏
+2026-04-14 16:27:38 | INFO | AdjarabetBot | ✅ gevsyuz | 11.00 ֏
+2026-04-14 16:27:42 | INFO | AdjarabetBot | ✅ arm55 | 95.60 ֏
+2026-04-14 16:27:42 | INFO | AdjarabetBot | ✅ arm55 | 95.60 ֏
+2026-04-14 16:27:43 | INFO | AdjarabetBot | ✅ davdavdav20 | 3.92 ֏
+2026-04-14 16:27:43 | INFO | AdjarabetBot | ✅ davdavdav20 | 3.92 ֏
+2026-04-14 16:27:47 | INFO | AdjarabetBot | Stopping bot...
+2026-04-14 16:27:47 | INFO | AdjarabetBot | Stopping bot...
+2026-04-14 16:27:52 | INFO | AdjarabetBot | Shutting down...
+2026-04-14 16:27:52 | INFO | AdjarabetBot | Shutting down...
